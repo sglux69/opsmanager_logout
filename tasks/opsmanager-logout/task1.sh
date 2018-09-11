@@ -10,15 +10,15 @@ echo "Retrieving PKS tile properties from Ops Manager [https://$OPSMAN_HOST]..."
 PRODUCTS=$(om-linux --target "https://${OPSMAN_HOST}" --client-id "${OPSMAN_CLIENT_ID}" --client-secret "${OPSMAN_CLIENT_SECRET}" --skip-ssl-validation curl -p /api/v0/staged/products)
 PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep nr-firehose-nozzle)
 
+echo "'{
+  "products": [
+  {
+  "guid":"#{PKS_GUID}",
+  "staged_stemcell_version": :3586.40"
+  }
+  }
+  }' > /tmp/file1.out
 
-om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d '{
-    "products": [
-    {
-    "guid":"#{PKS_GUID}",
-    "staged_stemcell_version": "3586.40"
-    }
-    ]
-    }'
+cat /tmp/file1.out
 
-
-
+om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d/tmp/file1.out
