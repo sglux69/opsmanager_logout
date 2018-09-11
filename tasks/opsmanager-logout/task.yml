@@ -19,8 +19,7 @@ image_resource:
   type: docker-image
   source: {repository: czero/cflinuxfs2}
 
-inputs:
-  - name: upgrade-stemcell
+
 
 params:
   OPSMAN_CLIENT_ID:
