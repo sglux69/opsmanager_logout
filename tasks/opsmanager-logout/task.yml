@@ -27,7 +27,7 @@ params:
   OPSMAN_HOST:
 
 run:
-  path: opsmanager_logout/tasks/opsmanager-logout/task.sh
+  path: AWS/tasks/logout-opsmanager/task.sh
 
 
 
