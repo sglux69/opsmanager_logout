@@ -19,7 +19,8 @@ image_resource:
   type: docker-image
   source: {repository: czero/cflinuxfs2}
 
-
+inputs:
+  - name: opsmanager_logout
 
 params:
   OPSMAN_CLIENT_ID:
@@ -27,7 +28,7 @@ params:
   OPSMAN_HOST:
 
 run:
-  path: AWS/tasks/logout-opsmanager/task.sh
+  path: opsmanager_logout/tasks/logout-opsmanager/task.sh
 
 
 
