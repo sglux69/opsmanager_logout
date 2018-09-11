@@ -17,15 +17,9 @@ set -eu
 # limitations under the License.
 
 function main() {
-  local cwd=$(pwd)
-  local stemcell=$(find ${cwd}/stemcell/*.tgz)
+   
 
-  if [ -z ${stemcell} ]; then
-    echo "stemcell not found."
-    exit 1
-  fi
-
-  printf "Uploading %s to %s ...\n" "${stemcell}" "${OPSMAN_HOST}"
+  printf "Logging out of"  "${OPSMAN_HOST}"
 
   om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/sessions -x DELETE
 
