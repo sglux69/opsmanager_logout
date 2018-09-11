@@ -13,7 +13,7 @@ PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep nr-firehose-nozzle)
 echo "'{
   "products": [
   {
-  "guid":"#{PKS_GUID}",
+  "guid":"${PKS_GUID}",
   "staged_stemcell_version": "3586.40"
   }
   ]
