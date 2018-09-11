@@ -21,7 +21,7 @@ function main() {
 
   printf "Logging out of"  "${OPSMAN_HOST}"
 
-  om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/sessions -x DELETE
+  #om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/sessions -x DELETE
 
 }
 
