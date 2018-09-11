@@ -11,10 +11,10 @@ PRODUCTS=$(om-linux --target "https://${OPSMAN_HOST}" --client-id "${OPSMAN_CLIE
 PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep nr-firehose-nozzle)
 
 echo "'{
-  "products": [
+  "\"products"\": [
   {
-  "guid": "${PKS_GUID}",
-  "staged_stemcell_version": "3586.40"
+  "\"guid"\":"\"${PKS_GUID}"\",
+  "\"staged_stemcell_version"\": "\"3586.40"\"
   }
   ]
   }'" > /tmp/file1.out
