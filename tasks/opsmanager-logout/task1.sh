@@ -13,7 +13,7 @@ PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep nr-firehose-nozzle)
 echo "'{
   "products": [
   {
-  "guid":"${PKS_GUID}",
+  "guid": "${PKS_GUID}",
   "staged_stemcell_version": "3586.40"
   }
   ]
@@ -21,4 +21,4 @@ echo "'{
 
 cat /tmp/file1.out
 
-om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d/tmp/file1.out
+om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d< /tmp/file1.out
