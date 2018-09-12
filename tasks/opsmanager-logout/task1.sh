@@ -11,8 +11,8 @@ PRODUCTS=$(om-linux --target "https://${OPSMAN_HOST}" --client-id "${OPSMAN_CLIE
 PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep ${PRODUCT_NAME} )
 
 
-  local cwd=$(pwd)
-  local stemcell=$(find ${cwd}/stemcell/*.tgz) 
+  cwd=$(pwd)
+  stemcell=$(find ${cwd}/stemcell/*.tgz) 
 
 
 if [ -z ${stemcell} ]; then
