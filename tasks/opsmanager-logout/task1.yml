@@ -26,6 +26,7 @@ params:
   OPSMAN_CLIENT_ID:
   OPSMAN_CLIENT_SECRET:
   OPSMAN_HOST:
+  PRODUCT_NAME: 
 
 run:
   path: opsmanager_logout/tasks/opsmanager-logout/task1.sh
