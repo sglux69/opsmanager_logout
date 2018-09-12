@@ -21,11 +21,11 @@ echo "'{
 
 cat /tmp/file1.out
 
-om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d "'{
+om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d '{
   "\"products"\": [
   {
   "\"guid"\":"\"${PKS_GUID}"\",
   "\"staged_stemcell_version"\": "\"3586.40"\"
   }
   ]
-  }'"
+  }'
