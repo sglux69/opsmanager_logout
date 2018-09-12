@@ -25,7 +25,7 @@ echo "'{
   "\"products"\": [
   {
   "\"guid"\":"\"${PKS_GUID}"\",
-  "\"staged_stemcell_version"\": "\"3586.40"\"
+  "\"staged_stemcell_version"\": "\"${stemcell}"\"
   }
   ]
   }'" > /tmp/file1.out
