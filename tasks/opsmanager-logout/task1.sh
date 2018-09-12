@@ -19,15 +19,19 @@ echo "'{
   ]
   }'" > /tmp/file1.out
 
-cat /tmp/file1.out
 
-A=`om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d '{
-  "products": [
+cat /tmp/file1.out
+d=`echo "'{
+  "\"products"\": [
   {
-  "guid":"${PKS_GUID}",
-  "staged_stemcell_version": "3586.40"
+  "\"guid"\":"\"${PKS_GUID}"\",
+  "\"staged_stemcell_version"\": "\"3586.40"\"
   }
   ]
-  }'`
+  }'"`
+a="om-linux -t https://${OPSMAN_HOST} -c ${OPSMAN_CLIENT_ID} -s ${OPSMAN_CLIENT_SECRET} -k curl --path /api/v0/stemcell_assignments -x PATCH -d $d"
 
-echo $A
+echo $a > file.out
+chmod 755 file.out
+./file.out
+
