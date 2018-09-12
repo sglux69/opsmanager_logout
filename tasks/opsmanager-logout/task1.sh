@@ -10,6 +10,17 @@ echo "Retrieving PKS tile properties from Ops Manager [https://$OPSMAN_HOST]..."
 PRODUCTS=$(om-linux --target "https://${OPSMAN_HOST}" --client-id "${OPSMAN_CLIENT_ID}" --client-secret "${OPSMAN_CLIENT_SECRET}" --skip-ssl-validation curl -p /api/v0/staged/products)
 PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep ${PRODUCT_NAME} )
 
+
+  local cwd=$(pwd)
+  local stemcell=$(find ${cwd}/stemcell/*.tgz) 
+
+
+if [ -z ${stemcell} ]; then
+    echo "stemcell not found."
+    exit 1
+  fi
+
+
 echo "'{
   "\"products"\": [
   {

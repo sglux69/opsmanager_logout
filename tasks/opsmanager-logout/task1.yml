@@ -21,7 +21,7 @@ image_resource:
 
 inputs:
   - name: opsmanager_logout
-
+  - name: stemcell
 params:
   OPSMAN_CLIENT_ID:
   OPSMAN_CLIENT_SECRET:
