@@ -14,6 +14,7 @@ PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep ${PRODUCT_NAME} )
   cwd=$(pwd)
   stemcell=$(find ${cwd}/stemcell/*.tgz) 
 
+version=`echo $stemcell | cut -d - -f 4`
 
 if [ -z ${stemcell} ]; then
     echo "stemcell not found."
@@ -25,7 +26,7 @@ echo "'{
   "\"products"\": [
   {
   "\"guid"\":"\"${PKS_GUID}"\",
-  "\"staged_stemcell_version"\": "\"${stemcell}"\"
+  "\"staged_stemcell_version"\": "\"${version}"\"
   }
   ]
   }'" > /tmp/file1.out
