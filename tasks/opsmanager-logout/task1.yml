@@ -20,7 +20,7 @@ image_resource:
   source: {repository: czero/cflinuxfs2}
 
 inputs:
-  - name: opsmanager_logout
+  - name: opsmanager-logout
   - name: stemcell
 params:
   OPSMAN_CLIENT_ID:
