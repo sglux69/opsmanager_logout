@@ -29,7 +29,7 @@ params:
   PRODUCT_NAME: 
 
 run:
-  path: opsmanager_logout/tasks/opsmanager-logout/task1.sh
+  path: opsmanager-logout/tasks/opsmanager-logout/task1.sh
 
 
 
