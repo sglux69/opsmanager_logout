@@ -8,7 +8,7 @@ set -eu
 echo "Retrieving PKS tile properties from Ops Manager [https://$OPSMAN_HOST]..."
 # get PKS UAA admin credentails from OpsMgr
 PRODUCTS=$(om-linux --target "https://${OPSMAN_HOST}" --client-id "${OPSMAN_CLIENT_ID}" --client-secret "${OPSMAN_CLIENT_SECRET}" --skip-ssl-validation curl -p /api/v0/staged/products)
-PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep ${PRODUCT_NAME} )
+PKS_GUID=$(echo "$PRODUCTS" | jq -r '.[] | .guid' | grep ${PRODUCT_NAME}- )
 
 
   cwd=$(pwd)
